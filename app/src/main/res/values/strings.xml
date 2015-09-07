@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Projet2</string>
+
+    <!-- Home Fragment -->
+    <string name="home_title">HOME</string>
+
+    <!-- Drawer -->
+    <string name="open_drawer">Open Drawer</string>
+    <string name="close_drawer">Close Drawer</string>
+
+    <!-- Menu -->
+    <string name="action_home">Accueil</string>
+    <string name="action_history">Historique</string>
+    <string name="action_settings">Settings</string>
+
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_history">Historique</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_course">CourseActivity</string>
+
+</resources>
