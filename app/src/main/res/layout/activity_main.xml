@@ -10,7 +10,10 @@
     <FrameLayout
         android:id="@+id/content_frame"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        />
+
+
 
     <!-- Le Navigation Drawer représentant une liste
     gravity start   : Support pour les langages RTL (right to left)

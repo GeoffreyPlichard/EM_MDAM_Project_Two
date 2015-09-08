@@ -7,23 +7,34 @@ import java.util.ArrayList;
  */
 public class Group {
 
-        private String Name;
-        private ArrayList<Child> Items;
 
-        public String getName() {
-            return Name;
-        }
 
-        public void setName(String name) {
-            this.Name = name;
-        }
+    private String _id;
+    private String Name;
+    private ArrayList<Child> Items;
 
-        public ArrayList<Child> getItems() {
+    public String getName() {
+        return Name;
+    }
+
+    public void setName(String name) {
+        this.Name = name;
+    }
+
+    public ArrayList<Child> getItems() {
             return Items;
         }
 
-        public void setItems(ArrayList<Child> Items) {
+    public void setItems(ArrayList<Child> Items) {
             this.Items = Items;
         }
+
+    public String getId() {
+        return _id;
+    }
+
+    public void setId(String id) {
+        _id = id;
+    }
 
 }

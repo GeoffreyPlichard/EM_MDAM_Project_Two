@@ -18,6 +18,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.hfad.projet2.Adapters.ExpandListAdapter;
+import com.hfad.projet2.Fragments.HomeFragment;
 import com.hfad.projet2.Fragments.TrainingListFragment;
 import com.hfad.projet2.Helpers.AppController;
 import com.hfad.projet2.Models.Child;
@@ -125,6 +126,17 @@ public class MainActivity extends Activity {
                     }
                 }
         );*/
+
+        Fragment fragment;
+        fragment = new HomeFragment();
+
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        // Ici on ajoute le tag "visible fragment" en dernier paramètre (voir fragment manager plus loin)
+        ft.replace(R.id.content_frame, fragment, "visible_fragment");
+        ft.addToBackStack(null);
+        // Remplace le fragment avec une transition fade
+        ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+        ft.commit();
 
 
     }

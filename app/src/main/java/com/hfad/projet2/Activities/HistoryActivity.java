@@ -41,7 +41,7 @@ public class HistoryActivity extends Activity {
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
         Gson gson = new Gson();
 
-        String json = sharedPrefs.getString("test", null);
+        String json = sharedPrefs.getString("historyString", null);
         Type type = new TypeToken<ArrayList<Group>>() {}.getType();
         ArrayList<Group> list = gson.fromJson(json, type);
         System.out.println("HISTORY HISTORY HISTORY HISTORY HISTORY HISTORY HISTORY");

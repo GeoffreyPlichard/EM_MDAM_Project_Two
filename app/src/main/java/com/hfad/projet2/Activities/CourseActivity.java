@@ -19,6 +19,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.hfad.projet2.Adapters.ExpandListAdapter;
 import com.hfad.projet2.Helpers.AppController;
 import com.hfad.projet2.Models.Child;
@@ -30,6 +31,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 
 public class CourseActivity extends Activity {
@@ -73,26 +75,25 @@ public class CourseActivity extends Activity {
             public void onCompletion(MediaPlayer mediaPlayer) {
 
                 SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(CourseActivity.this);
+
                 SharedPreferences.Editor editor = sharedPrefs.edit();
                 Gson gson = new Gson();
 
                 String json = gson.toJson(list);
 
-                editor.putString("test", json);
+                editor.putString("historyString", json);
                 editor.commit();
+
 
                 Intent intent = new Intent(CourseActivity.this, HistoryActivity.class);
                 intent.putExtra("history", "test");
                 startActivity(intent);
-                //saveHistory();
             }
         });
 
 
     }
 
-    public void saveHistory() {
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -131,6 +132,7 @@ public class CourseActivity extends Activity {
                             // TITRE
                             Group gru = new Group();
                             gru.setName(response.getString("title"));
+                            gru.setId(response.getString("ean13"));
                             list.add(gru);
 
                             // SOMMAIRE
@@ -144,15 +146,13 @@ public class CourseActivity extends Activity {
                                     course_video.setVideoPath(videoObj.getString("filepath"));
                                     Child ch = new Child();
                                     ch.setName(childItems.getString("title"));
-                                    System.out.println(ch.getName());
+                                    ch.setId(childItems.getString("_id"));
                                     ch_list.add(ch);
 
 
                                 }
                             }
                             gru.setItems(ch_list);
-
-
                             pDialog.dismiss();
 
 
