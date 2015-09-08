@@ -137,6 +137,7 @@ public class MainActivity extends Activity {
         // Remplace le fragment avec une transition fade
         ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
         ft.commit();
+        getActionBar().setTitle("Elephorm");
 
 
     }
@@ -158,6 +159,7 @@ public class MainActivity extends Activity {
         public boolean onChildClick(ExpandableListView expandableListView, View view, int parentPosition, int childPosition, long l) {
             String childId = list.get(parentPosition).getItems().get(childPosition).getId();
             selectItem(childId);
+            getActionBar().setTitle(list.get(parentPosition).getItems().get(childPosition).getName());
             return false;
         }
     };
@@ -228,6 +230,9 @@ public class MainActivity extends Activity {
             return true;
         }
         switch (item.getItemId()) {
+            case R.id.action_home:
+                Intent intentHome = new Intent(this, MainActivity.class);
+                startActivity(intentHome);
             case R.id.action_settings:
                 return true;
             case R.id.action_history:

@@ -35,8 +35,7 @@ public class HistoryActivity extends Activity {
         Intent intent = getIntent();
         final String History = intent.getStringExtra("history");
 
-        TextView tv = (TextView) findViewById(R.id.test_history);
-        tv.setText(History);
+
 
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
         Gson gson = new Gson();

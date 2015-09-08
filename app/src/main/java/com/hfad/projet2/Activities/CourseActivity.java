@@ -41,6 +41,7 @@ public class CourseActivity extends Activity {
     private String trainingUrl;
     private VideoView course_video;
     private String course_title;
+    private TextView tvTitle;
     ArrayList<Group> list = new ArrayList<Group>();
     ArrayList<Child> ch_list = new ArrayList<Child>();
 
@@ -54,8 +55,6 @@ public class CourseActivity extends Activity {
         courseId = intent.getStringExtra("courseId");
         trainingUrl = intent.getStringExtra("trainingUrl");
 
-        TextView tv = (TextView) findViewById(R.id.course_id);
-        tv.setText(courseId);
 
         course_video = (VideoView) findViewById(R.id.course_video);
         course_video.setMediaController(new MediaController(this));
@@ -67,6 +66,11 @@ public class CourseActivity extends Activity {
 
         makeJsonObjectRequest();
 
+        getActionBar().setTitle("Cours");
+
+        tvTitle = (TextView) findViewById(R.id.course_title);
+
+        course_video.start();
 
 
 
@@ -108,10 +112,13 @@ public class CourseActivity extends Activity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         switch (item.getItemId()) {
+            case R.id.action_home:
+                Intent intentHome = new Intent(this, MainActivity.class);
+                startActivity(intentHome);
             case R.id.action_settings:
                 return true;
-            case R.id.action_home:
-                Intent intent = new Intent(this, MainActivity.class);
+            case R.id.action_history:
+                Intent intent = new Intent(this, HistoryActivity.class);
                 startActivity(intent);
             default:
                 return super.onOptionsItemSelected(item);
@@ -132,6 +139,7 @@ public class CourseActivity extends Activity {
                             // TITRE
                             Group gru = new Group();
                             gru.setName(response.getString("title"));
+                            tvTitle.setText(response.getString("title"));
                             gru.setId(response.getString("ean13"));
                             list.add(gru);
 

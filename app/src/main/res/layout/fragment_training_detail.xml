@@ -10,12 +10,17 @@
         android:id="@+id/training_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textSize="30dp"
+        android:gravity="center"
         android:text="" />
 
     <VideoView
         android:id="@+id/training_video"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"/>
 
     <ExpandableListView
         android:id="@+id/training_summary"
